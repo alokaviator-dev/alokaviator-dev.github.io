@@ -1,16 +1,52 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import HeroSection from "@/components/HeroSection";
+import IdentitySection from "@/components/IdentitySection";
+import HowIThinkSection from "@/components/HowIThinkSection";
+import PressureSection from "@/components/PressureSection";
+import SignatureWorkSection from "@/components/SignatureWorkSection";
+import PhilosophySection from "@/components/PhilosophySection";
+import FinalCTA from "@/components/FinalCTA";
+import CursorGlow from "@/components/CursorGlow";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [entered, setEntered] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const handleEnter = () => {
+    setEntered(true);
+    setTimeout(() => {
+      contentRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="bg-background min-h-screen">
+      <CursorGlow />
+
+      {/* Hero always visible */}
+      <HeroSection onEnter={handleEnter} />
+
+      {/* Content sections */}
+      <AnimatePresence>
+        {entered && (
+          <motion.div
+            ref={contentRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <IdentitySection />
+            <HowIThinkSection />
+            <PressureSection />
+            <SignatureWorkSection />
+            <PhilosophySection />
+            <FinalCTA />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
