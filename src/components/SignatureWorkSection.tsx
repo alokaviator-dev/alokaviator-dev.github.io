@@ -16,7 +16,6 @@ interface Project {
   approach: string;
   outcome: string;
   image: string;
-  classification: string;
   status: string;
   align: "left" | "right";
 }
@@ -27,12 +26,11 @@ const PROJECTS: Project[] = [
     label: "AUTONOMOUS SYSTEMS",
     title: "Autonomous",
     titleAccent: "defense platforms.",
-    problem: "Existing UAV systems rely on human operators for real-time decision-making — a bottleneck that doesn't scale.",
-    constraint: "Sub-200ms latency requirement in GPS-denied environments with active electronic warfare.",
-    approach: "Designed sensor-fusion architecture combining LiDAR, thermal, and inertial data with onboard ML inference for autonomous navigation.",
-    outcome: "Operational UAV platform with fully autonomous waypoint navigation and threat avoidance in contested airspace.",
+    problem: "UAV systems bottlenecked by human reaction time.",
+    constraint: "Sub-200ms latency in GPS-denied, EW-active zones.",
+    approach: "Sensor-fusion architecture with onboard ML inference for autonomous navigation.",
+    outcome: "Fully autonomous threat avoidance in contested airspace.",
     image: droneImg,
-    classification: "RESTRICTED",
     status: "OPERATIONAL",
     align: "left",
   },
@@ -41,12 +39,11 @@ const PROJECTS: Project[] = [
     label: "COMMAND & CONTROL",
     title: "Systems that",
     titleAccent: "never sleep.",
-    problem: "Multi-domain operations generate overwhelming data streams that exceed human cognitive bandwidth.",
-    constraint: "Must maintain 99.99% uptime across distributed nodes with zero single points of failure.",
-    approach: "Architected event-driven C2 system with real-time sensor aggregation, automated threat classification, and predictive situational awareness.",
-    outcome: "24/7 autonomous monitoring across air, ground, and cyber domains with 40% faster threat response.",
+    problem: "Multi-domain data exceeds human cognitive bandwidth.",
+    constraint: "99.99% uptime, zero single points of failure.",
+    approach: "Event-driven C2 with automated threat classification and predictive awareness.",
+    outcome: "40% faster threat response across air, ground, and cyber.",
     image: commandImg,
-    classification: "TOP SECRET",
     status: "ACTIVE",
     align: "right",
   },
@@ -54,13 +51,12 @@ const PROJECTS: Project[] = [
     id: "03",
     label: "HUMAN-MACHINE INTERFACE",
     title: "Pressure-suit",
-    titleAccent: "integration systems.",
-    problem: "Astronaut pressure suits limit dexterity and situational awareness during EVA operations.",
-    constraint: "Must function in extreme temperature ranges (-150°C to +120°C) with zero electromagnetic interference.",
-    approach: "Developed haptic feedback integration and heads-up display overlay for enhanced spatial awareness inside pressure suits.",
-    outcome: "Reduced EVA task completion time by 35% during analog mission testing at simulated lunar conditions.",
+    titleAccent: "integration.",
+    problem: "Pressure suits limit dexterity and situational awareness.",
+    constraint: "Extreme temps (-150°C to +120°C), zero EMI.",
+    approach: "Haptic feedback + HUD overlay for spatial awareness inside suits.",
+    outcome: "35% faster EVA task completion in analog testing.",
     image: suitImg,
-    classification: "CONFIDENTIAL",
     status: "TESTING",
     align: "left",
   },
@@ -68,13 +64,12 @@ const PROJECTS: Project[] = [
     id: "04",
     label: "PLANETARY ROBOTICS",
     title: "Autonomous",
-    titleAccent: "surface exploration.",
-    problem: "Communication delays of up to 20 minutes make real-time rover teleoperation impossible on planetary surfaces.",
-    constraint: "Rover must navigate unknown terrain, avoid hazards, and complete science objectives with zero human input for hours.",
-    approach: "Built autonomous navigation stack with terrain classification, hazard avoidance, and science-target prioritization using onboard compute.",
-    outcome: "Demonstrated fully autonomous rover operations during 14-day lunar analog mission with 98% objective completion.",
+    titleAccent: "surface ops.",
+    problem: "20-min comms delay makes teleoperation impossible.",
+    constraint: "Hours of autonomous operation on unknown terrain.",
+    approach: "Onboard nav stack with terrain classification and hazard avoidance.",
+    outcome: "98% objective completion in 14-day lunar analog mission.",
     image: roverImg,
-    classification: "RESTRICTED",
     status: "MISSION COMPLETE",
     align: "right",
   },
@@ -83,194 +78,166 @@ const PROJECTS: Project[] = [
     label: "NEURAL SYSTEMS",
     title: "Cognitive",
     titleAccent: "augmentation.",
-    problem: "Operators in high-stakes environments suffer cognitive overload, leading to delayed decisions and errors.",
-    constraint: "Non-invasive solution required. Must integrate with existing defense infrastructure without hardware modification.",
-    approach: "Designed neural-feedback loop that monitors operator cognitive load and dynamically adjusts information density in real-time.",
-    outcome: "Reduced operator error rate by 60% in simulated high-stress command scenarios.",
+    problem: "Operator cognitive overload in high-stakes environments.",
+    constraint: "Non-invasive, compatible with existing defense infrastructure.",
+    approach: "Neural-feedback loop dynamically adjusting information density.",
+    outcome: "60% reduction in operator error rate under stress.",
     image: neuralImg,
-    classification: "TOP SECRET",
     status: "PROTOTYPE",
     align: "left",
   },
 ];
 
-const HudCorners = ({ className = "" }: { className?: string }) => (
-  <div className={`absolute inset-0 pointer-events-none ${className}`}>
-    <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-primary/30" />
-    <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-primary/30" />
-    <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-primary/30" />
-    <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-primary/30" />
-  </div>
-);
-
-const DataField = ({ label, value }: { label: string; value: string }) => (
-  <div className="space-y-1">
-    <span className="text-mono text-primary/40 text-[10px] sm:text-xs block">{label}</span>
-    <p className="text-muted-foreground font-light text-sm sm:text-base leading-relaxed">{value}</p>
-  </div>
-);
-
 const ProjectSection = ({ project, index }: { project: Project; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const imgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const textY = useTransform(scrollYProgress, [0, 1], [40, -20]);
-  const imgScale = useTransform(scrollYProgress, [0, 0.5], [1.1, 1]);
+  const imgY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   const isRight = project.align === "right";
 
   return (
-    <div ref={ref} className="relative min-h-screen w-full overflow-hidden">
-      {/* Full-bleed parallax image */}
-      <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0 z-0">
-        <img
-          src={project.image}
-          alt={project.label}
-          loading="lazy"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-background/70" />
-        <div className={`absolute inset-0 ${
-          isRight
-            ? "bg-gradient-to-l from-background via-background/50 to-transparent"
-            : "bg-gradient-to-r from-background via-background/50 to-transparent"
-        }`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40" />
-      </motion.div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8 }}
+      className="relative w-full py-16 sm:py-24 lg:py-32"
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <div className={`flex flex-col ${isRight ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-16 items-center`}>
+          
+          {/* Image side */}
+          <motion.div style={{ y: imgY }} className="w-full lg:w-1/2 relative group">
+            <div className="relative overflow-hidden aspect-[16/10] rounded-sm">
+              {/* HUD corners */}
+              <div className="absolute inset-0 z-10 pointer-events-none">
+                <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-primary/20" />
+                <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-primary/20" />
+                <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-primary/20" />
+                <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-primary/20" />
+              </div>
 
-      {/* Noise */}
-      <div className="noise-overlay absolute inset-0 pointer-events-none z-[5]" />
+              <img
+                src={project.image}
+                alt={project.label}
+                loading="lazy"
+                width={1920}
+                height={1080}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-background/30 group-hover:bg-background/10 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
 
-      {/* HUD overlay */}
-      <div className="absolute inset-0 z-[6] pointer-events-none hidden md:block">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.15 }}
-          viewport={{ once: true }}
-          className={`absolute top-16 ${isRight ? "left-16" : "right-16"}`}
-        >
-          <div className="w-32 h-32 lg:w-48 lg:h-48 border border-primary/10 rounded-full" />
-          <div className="absolute top-4 left-4 w-24 h-24 lg:w-40 lg:h-40 border border-primary/5 rounded-full" />
-        </motion.div>
-
-        {/* Scan line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 2, delay: 0.5 }}
-          className={`absolute top-1/2 ${isRight ? "right-0 origin-right" : "left-0 origin-left"} w-1/3 h-px bg-gradient-to-r from-primary/20 to-transparent`}
-        />
-      </div>
-
-      {/* Classification badge */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.3 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.8 }}
-        className={`absolute bottom-8 sm:bottom-16 ${isRight ? "left-6 sm:left-16 text-left" : "right-6 sm:right-16 text-right"} z-20 text-mono text-primary/40`}
-      >
-        <span>CLASSIFICATION: {project.classification}</span>
-        <br />
-        <span>STATUS: {project.status}</span>
-      </motion.div>
-
-      {/* Content */}
-      <motion.div
-        style={{ y: textY }}
-        className={`relative z-20 flex items-center min-h-screen px-6 sm:px-8 md:px-16 lg:px-24 py-20 ${
-          isRight ? "justify-end" : "justify-start"
-        }`}
-      >
-        <div className={`max-w-xl lg:max-w-2xl ${isRight ? "text-right" : "text-left"}`}>
-          {/* Project number & label */}
-          <motion.div
-            initial={{ opacity: 0, x: isRight ? 20 : -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-6 sm:mb-8"
-          >
-            <span className="text-mono text-primary/40 text-[10px] sm:text-xs">
-              PROJECT {project.id}
-            </span>
-            <span className="text-mono text-primary/60 ml-4 sm:ml-6 text-[10px] sm:text-xs">
-              {project.label}
-            </span>
-          </motion.div>
-
-          {/* Title */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-display text-section text-foreground mb-8 sm:mb-12"
-          >
-            {project.title}
-            <br />
-            <span className="text-primary">{project.titleAccent}</span>
-          </motion.h2>
-
-          {/* Data fields with HUD frame */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative p-4 sm:p-6"
-          >
-            <HudCorners />
-            <div className={`space-y-4 sm:space-y-6 ${isRight ? "text-right" : "text-left"}`}>
-              <DataField label="PROBLEM" value={project.problem} />
-              <DataField label="CONSTRAINT" value={project.constraint} />
-              <DataField label="APPROACH" value={project.approach} />
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 }}
-                className="space-y-1"
-              >
-                <span className="text-mono text-primary/60 text-[10px] sm:text-xs block">OUTCOME</span>
-                <p className="text-foreground font-light text-sm sm:text-base leading-relaxed">{project.outcome}</p>
-              </motion.div>
+              {/* Status pill */}
+              <div className="absolute top-4 left-4 z-10">
+                <span className="text-mono text-[9px] sm:text-[10px] text-primary/70 bg-background/40 backdrop-blur-sm px-2.5 py-1 border border-primary/10">
+                  {project.status}
+                </span>
+              </div>
             </div>
           </motion.div>
-        </div>
-      </motion.div>
 
-      {/* Divider line */}
+          {/* Text side */}
+          <div className={`w-full lg:w-1/2 ${isRight ? "lg:text-right" : "lg:text-left"}`}>
+            {/* Project number & label */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-3 mb-5"
+              style={{ justifyContent: isRight ? "flex-end" : "flex-start" }}
+            >
+              <span className="text-mono text-primary/30 text-[10px]">{project.id}</span>
+              <span className="w-8 h-px bg-primary/20" />
+              <span className="text-mono text-primary/50 text-[10px]">{project.label}</span>
+            </motion.div>
+
+            {/* Title */}
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-display font-light tracking-tight text-foreground text-3xl sm:text-4xl lg:text-5xl leading-[1.1] mb-6"
+            >
+              {project.title}{" "}
+              <span className="text-primary">{project.titleAccent}</span>
+            </motion.h3>
+
+            {/* Data rows — sleek inline layout */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="space-y-3"
+            >
+              {[
+                { label: "PROBLEM", value: project.problem },
+                { label: "CONSTRAINT", value: project.constraint },
+                { label: "APPROACH", value: project.approach },
+              ].map((field) => (
+                <div key={field.label} className={`flex ${isRight ? "flex-row-reverse" : "flex-row"} gap-3 items-baseline`}>
+                  <span className="text-mono text-primary/30 text-[9px] shrink-0 w-16 sm:w-20"
+                    style={{ textAlign: isRight ? "left" : "right" }}
+                  >
+                    {field.label}
+                  </span>
+                  <p className="text-muted-foreground font-light text-sm leading-relaxed">{field.value}</p>
+                </div>
+              ))}
+
+              {/* Outcome — highlighted */}
+              <div className={`flex ${isRight ? "flex-row-reverse" : "flex-row"} gap-3 items-baseline pt-2 border-t border-primary/10`}>
+                <span className="text-mono text-primary/50 text-[9px] shrink-0 w-16 sm:w-20"
+                  style={{ textAlign: isRight ? "left" : "right" }}
+                >
+                  OUTCOME
+                </span>
+                <p className="text-foreground/90 font-light text-sm leading-relaxed">{project.outcome}</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Separator */}
       {index < PROJECTS.length - 1 && (
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-primary/20 to-transparent z-20" />
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 mt-16 sm:mt-24 lg:mt-32">
+          <div className="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+        </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
 const SignatureWorkSection = () => {
   return (
-    <section className="relative bg-background">
+    <section className="relative bg-background overflow-hidden">
+      <div className="noise-overlay absolute inset-0 pointer-events-none z-0" />
+
       {/* Section header */}
-      <div className="relative z-10 flex items-center justify-center py-20 sm:py-32">
-        <div className="text-center px-6">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-mono text-primary/60 mb-4 sm:mb-6 block"
-          >
-            SIGNATURE WORK
-          </motion.span>
+      <div className="relative z-10 pt-20 sm:pt-32 pb-8 sm:pb-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+          <div className="flex items-center gap-4 mb-4">
+            <span className="w-12 h-px bg-primary/30" />
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-mono text-primary/50"
+            >
+              SIGNATURE WORK
+            </motion.span>
+          </div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-display text-section text-foreground"
+            className="font-display font-light tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl"
           >
             Systems I've <span className="text-primary">built.</span>
           </motion.h2>
@@ -278,9 +245,11 @@ const SignatureWorkSection = () => {
       </div>
 
       {/* Projects */}
-      {PROJECTS.map((project, index) => (
-        <ProjectSection key={project.id} project={project} index={index} />
-      ))}
+      <div className="relative z-10">
+        {PROJECTS.map((project, index) => (
+          <ProjectSection key={project.id} project={project} index={index} />
+        ))}
+      </div>
     </section>
   );
 };
