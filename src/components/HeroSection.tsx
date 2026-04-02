@@ -19,13 +19,16 @@ const HeroSection = ({ onEnter }: HeroSectionProps) => {
 
       {/* Grid lines HUD */}
       <div className="absolute inset-0 z-[5] pointer-events-none opacity-[0.04]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
             linear-gradient(hsl(var(--accent-green) / 0.3) 1px, transparent 1px),
             linear-gradient(90deg, hsl(var(--accent-green) / 0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '80px 80px',
-        }} />
+            backgroundSize: "80px 80px",
+          }}
+        />
       </div>
 
       {/* Hero image - right side */}
@@ -85,7 +88,7 @@ const HeroSection = ({ onEnter }: HeroSectionProps) => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-mono text-primary/70 mb-6"
           >
-            FOUNDER · ENGINEER · SYSTEMS ARCHITECT
+            ANALOG ASTRONAUT · AEROSPACE ENGINEER · SYSTEMS ARCHITECT
           </motion.p>
 
           <motion.h1
@@ -94,8 +97,7 @@ const HeroSection = ({ onEnter }: HeroSectionProps) => {
             transition={{ duration: 1, delay: 0.5 }}
             className="text-display text-hero text-foreground mb-6"
           >
-            I design systems others don't understand{" "}
-            <span className="text-primary">yet.</span>
+            I design systems others don't understand <span className="text-primary">yet.</span>
           </motion.h1>
 
           <motion.p
