@@ -35,13 +35,50 @@ const Landing = () => {
     };
   }, []);
 
-  const handleEnter = () => {
-    navigate("/experience");
-  };
+  const [exiting, setExiting] = useState(false);
+
+  const handleEnter = useCallback(() => {
+    setExiting(true);
+    setTimeout(() => navigate("/experience"), 1400);
+  }, [navigate]);
 
   return (
     <div className="bg-background min-h-screen overflow-hidden relative">
       <div className="noise-overlay absolute inset-0 pointer-events-none z-50" />
+
+      {/* Cinematic wipe transition */}
+      <AnimatePresence>
+        {exiting && (
+          <>
+            {/* First blade — sweeps left to right */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+              className="fixed inset-0 z-[100] origin-left"
+              style={{ background: "linear-gradient(135deg, hsl(var(--deep-green)), hsl(var(--background)))" }}
+            />
+            {/* Second blade — slightly delayed */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.76, 0, 0.24, 1] }}
+              className="fixed inset-0 z-[101] origin-left bg-background"
+            />
+            {/* Loading text on top */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
+              className="fixed inset-0 z-[102] flex items-center justify-center"
+            >
+              <span className="text-mono text-primary/60 tracking-[0.3em] text-sm">
+                ACCESSING MAINFRAME
+              </span>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence mode="wait">
         {phase === "boot" && (
