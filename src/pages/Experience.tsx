@@ -30,14 +30,15 @@ const Experience = () => {
         transition={{ duration: 1.2, delay: 0.5 }}
         className="bg-background min-h-screen"
       >
-      <CursorGlow />
-      <IdentitySection />
-      <HowIThinkSection />
-      <PressureSection />
-      <SignatureWorkSection />
-      <PhilosophySection />
-      <FinalCTA />
-    </motion.div>
+        <CursorGlow />
+        <IdentitySection />
+        <HowIThinkSection />
+        <PressureSection />
+        <SignatureWorkSection />
+        <PhilosophySection />
+        <FinalCTA />
+      </motion.div>
+    </>
   );
 };
 
