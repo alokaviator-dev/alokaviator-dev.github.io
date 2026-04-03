@@ -102,6 +102,10 @@ const STAGES: Stage[] = [
     skills: ["EVA Systems", "Isolation Ops", "Comms-Denied", "Crew Systems"],
     insight: "Pressure doesn't build character. It reveals architecture.",
     image: roverImg,
+    awards: [
+      { title: "Analog Astronaut Certification", context: "Lunar mission crew" },
+      { title: "Crew Systems Lead Citation", context: "Isolation ops" },
+    ],
   },
 ];
 
