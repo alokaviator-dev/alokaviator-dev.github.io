@@ -216,7 +216,38 @@ const TrajectoryStage = ({
               ))}
             </motion.div>
 
-            {/* Insight */}
+            {/* Awards — validation markers */}
+            {stage.awards && stage.awards.length > 0 && (
+              <motion.div
+                className={`flex flex-wrap gap-2.5 mb-5 ${isEven ? "lg:justify-end" : ""}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                {stage.awards.map((award, ai) => (
+                  <motion.div
+                    key={award.title}
+                    className="flex items-center gap-2 text-mono text-[9px] px-3 py-1.5 border border-primary/25 bg-primary/8 backdrop-blur-sm relative overflow-hidden group"
+                    initial={{ opacity: 0, x: isEven ? 15 : -15 }}
+                    animate={{
+                      opacity: isActive ? 1 : 0,
+                      x: isActive ? 0 : isEven ? 15 : -15,
+                    }}
+                    transition={{ duration: 0.5, delay: 0.42 + ai * 0.08 }}
+                  >
+                    {/* Subtle glow behind */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Diamond marker */}
+                    <span className="relative w-1.5 h-1.5 bg-primary/80 rotate-45 shrink-0 shadow-[0_0_6px_hsl(var(--primary)/0.4)]" />
+                    <span className="relative text-primary/90 font-medium">{award.title}</span>
+                    {award.context && (
+                      <span className="relative text-muted-foreground/50 hidden sm:inline">— {award.context}</span>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
             <motion.div
               className={`border-l-2 border-primary/30 pl-4 ${
                 isEven ? "lg:border-l-0 lg:border-r-2 lg:pl-0 lg:pr-4 lg:text-right" : ""
