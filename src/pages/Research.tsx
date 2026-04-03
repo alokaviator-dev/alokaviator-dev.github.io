@@ -116,6 +116,7 @@ const Research = () => {
       transition={{ duration: 1 }}
       className="bg-background min-h-screen"
     >
+      <TopNav />
       <CursorGlow />
 
       {/* Noise */}

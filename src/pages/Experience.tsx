@@ -19,6 +19,7 @@ const Experience = () => {
       transition={{ duration: 1 }}
       className="bg-background min-h-screen"
     >
+      <TopNav />
       <CursorGlow />
       <IdentitySection />
       <TrajectorySection />
