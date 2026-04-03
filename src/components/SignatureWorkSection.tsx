@@ -25,7 +25,7 @@ const PROJECTS: Project[] = [
     id: "01",
     label: "AUTONOMOUS SYSTEMS",
     title: "Autonomous",
-    titleAccent: "defense platforms.",
+    titleAccent: "Fixed-Wing UAV.",
     problem: "UAV systems bottlenecked by human reaction time.",
     constraint: "Sub-200ms latency in GPS-denied, EW-active zones.",
     approach: "Sensor-fusion architecture with onboard ML inference for autonomous navigation.",
