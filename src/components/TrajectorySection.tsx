@@ -4,7 +4,7 @@ import foundationImg from "@/assets/trajectory-foundation.jpg";
 import systemsImg from "@/assets/trajectory-systems.jpg";
 import uavImg from "@/assets/trajectory-uav.jpg";
 import researchImg from "@/assets/trajectory-research.jpg";
-import roverImg from "@/assets/lunar-analog-astronaut.png";
+import roverImg from "@/assets/lunar-rover-cinematic.jpg";
 
 interface Award {
   title: string;
