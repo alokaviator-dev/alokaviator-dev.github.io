@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import IdentitySection from "@/components/IdentitySection";
+import TrajectorySection from "@/components/TrajectorySection";
 import HowIThinkSection from "@/components/HowIThinkSection";
+import InflectionPointsSection from "@/components/InflectionPointsSection";
 import PressureSection from "@/components/PressureSection";
 import SignatureWorkSection from "@/components/SignatureWorkSection";
+import FutureDirectionSection from "@/components/FutureDirectionSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import FinalCTA from "@/components/FinalCTA";
 import CursorGlow from "@/components/CursorGlow";
@@ -17,9 +20,12 @@ const Experience = () => {
     >
       <CursorGlow />
       <IdentitySection />
+      <TrajectorySection />
       <HowIThinkSection />
+      <InflectionPointsSection />
       <PressureSection />
       <SignatureWorkSection />
+      <FutureDirectionSection />
       <PhilosophySection />
       <FinalCTA />
     </motion.div>
