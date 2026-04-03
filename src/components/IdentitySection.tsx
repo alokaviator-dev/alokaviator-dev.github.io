@@ -66,9 +66,9 @@ const IdentitySection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-muted-foreground font-light leading-relaxed text-lg"
             >
-              Aerospace engineer turned founder. Building defense systems
-              at the intersection of autonomy, intelligence, and precision.
-              Every system I build exists because the alternative was unacceptable.
+              Analog astronaut, UAV systems engineer, and founder.<br />
+              Building defense systems at the intersection of autonomy, intelligence, and precision.<br />
+              Every system exists because the alternative is unacceptable.
             </motion.p>
 
             <motion.div

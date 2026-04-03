@@ -63,8 +63,8 @@ const STAGES: Stage[] = [
     label: "UAV DESIGN",
     title: "Building what",
     titleAccent: "flies autonomous.",
-    org: "Feynman Aerospace",
-    period: "2021–2022",
+    org: "FEYNMAN AEROSPACE",
+    period: "2023–2024",
     description:
       "Designed and built UAV platforms from airframe to avionics. Learned that autonomy isn't a feature—it's an architecture decision that changes everything downstream.",
     skills: ["UAV Architecture", "Flight Control", "Autonomous Nav", "CFD"],
