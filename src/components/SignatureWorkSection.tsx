@@ -37,8 +37,8 @@ const PROJECTS: Project[] = [
   {
     id: "02",
     label: "COMMAND & CONTROL",
-    title: "Systems that",
-    titleAccent: "never sleep.",
+    title: "Web-based",
+    titleAccent: "Ground Control Systems.",
     problem: "Multi-domain data exceeds human cognitive bandwidth.",
     constraint: "99.99% uptime, zero single points of failure.",
     approach: "Event-driven C2 with automated threat classification and predictive awareness.",
