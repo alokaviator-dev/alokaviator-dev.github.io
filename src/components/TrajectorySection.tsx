@@ -70,6 +70,9 @@ const STAGES: Stage[] = [
     skills: ["UAV Architecture", "Flight Control", "Autonomous Nav", "CFD"],
     insight: "Autonomy is earned through reliability, not complexity.",
     image: uavImg,
+    awards: [
+      { title: "National UAV Competition — Top 5", context: "Autonomous flight" },
+    ],
   },
   {
     id: "04",
