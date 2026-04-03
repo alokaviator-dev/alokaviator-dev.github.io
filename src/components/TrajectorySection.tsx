@@ -6,6 +6,11 @@ import uavImg from "@/assets/trajectory-uav.jpg";
 import researchImg from "@/assets/trajectory-research.jpg";
 import roverImg from "@/assets/lunar-rover-cinematic.jpg";
 
+interface Award {
+  title: string;
+  context?: string;
+}
+
 interface Stage {
   id: string;
   label: string;
@@ -17,6 +22,7 @@ interface Stage {
   skills: string[];
   insight: string;
   image: string;
+  awards?: Award[];
 }
 
 const STAGES: Stage[] = [
