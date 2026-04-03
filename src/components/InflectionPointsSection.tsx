@@ -68,7 +68,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
           loading="lazy"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${point.mobileObjectPosition ? point.mobileObjectPosition : ''}`}
         />
         <div className={`absolute inset-0 ${point.textRight ? 'bg-background/40' : 'bg-background/70'}`} />
         <div className={`absolute inset-0 ${point.textRight ? 'bg-gradient-to-l from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/60 to-transparent'}`} />
