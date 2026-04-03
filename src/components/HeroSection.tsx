@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onEnter }: HeroSectionProps) => {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-background">
+    <section className="relative h-[100svh] w-full overflow-hidden bg-background">
       {/* Noise overlay */}
       <div className="absolute inset-0 noise-overlay z-10 pointer-events-none" />
 

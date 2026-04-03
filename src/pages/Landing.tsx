@@ -40,7 +40,7 @@ const Landing = () => {
   };
 
   return (
-    <div className="bg-background min-h-screen overflow-hidden relative">
+    <div className="bg-background min-h-[100svh] overflow-hidden relative">
       <div className="noise-overlay absolute inset-0 pointer-events-none z-50" />
 
       <AnimatePresence mode="wait">
