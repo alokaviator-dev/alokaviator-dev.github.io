@@ -4,7 +4,7 @@ import droneImg from "@/assets/drone-project.jpg";
 import commandImg from "@/assets/command-center.jpg";
 import neuralImg from "@/assets/neural-interface.jpg";
 import suitImg from "@/assets/suit-helmet-cinematic.jpg";
-import roverImg from "@/assets/lunar-rover-cinematic.jpg";
+import roverImg from "@/assets/rover-workshop-cinematic.jpg";
 
 interface Project {
   id: string;
