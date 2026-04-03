@@ -47,8 +47,8 @@ const STAGES: Stage[] = [
     label: "SYSTEMS EXPOSURE",
     title: "From components to",
     titleAccent: "connected systems.",
-    org: "ArthX · Embedded Systems · GCS",
-    period: "2020–2021",
+    org: "ARTHX · EMBEDDED SYSTEMS · GCS",
+    period: "2022–2023",
     description:
       "Transitioned from mechanical to embedded systems and ground control stations. First exposure to real-time telemetry, sensor fusion, and the pressure of systems that can't fail.",
     skills: ["Embedded C/C++", "Ground Control", "Telemetry", "Sensor Fusion"],
