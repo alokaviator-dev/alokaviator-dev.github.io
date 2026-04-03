@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import suitImg from "@/assets/suit-helmet-cinematic.jpg";
+import investorImg from "@/assets/investor-meet-cinematic.jpg";
 import roverImg from "@/assets/lunar-rover-cinematic.jpg";
 import uavImg from "@/assets/trajectory-uav.jpg";
 
@@ -38,7 +38,7 @@ const POINTS: InflectionPoint[] = [
     title: "Building under pressure.\n",
     description:
       "Limited time. High stakes. Every claim had to hold under questioning. Every assumption had to survive scrutiny. This is where ideas are tested against reality.",
-    image: suitImg,
+    image: investorImg,
     impact: "Converted conversations into serious investor interest.",
   },
 ];
