@@ -11,6 +11,7 @@ interface InflectionPoint {
   description: string;
   image: string;
   impact: string;
+  textRight?: boolean;
 }
 
 const POINTS: InflectionPoint[] = [
@@ -40,6 +41,7 @@ const POINTS: InflectionPoint[] = [
       "Limited time. High stakes. Every claim had to hold under questioning. Every assumption had to survive scrutiny. This is where ideas are tested against reality.",
     image: investorImg,
     impact: "Converted conversations into serious investor interest.",
+    textRight: true,
   },
 ];
 
@@ -68,23 +70,23 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
           height={1080}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        <div className={`absolute inset-0 ${point.textRight ? 'bg-background/40' : 'bg-background/70'}`} />
+        <div className={`absolute inset-0 ${point.textRight ? 'bg-gradient-to-l from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/60 to-transparent'}`} />
       </motion.div>
 
       {/* Content */}
       <motion.div
         style={{ y: textY }}
-        className="relative z-20 container mx-auto px-6 md:px-16 py-20"
+        className={`relative z-20 container mx-auto px-6 md:px-16 py-20 ${point.textRight ? 'flex justify-end' : ''}`}
       >
-        <div className="max-w-2xl">
+        <div className={`max-w-2xl ${point.textRight ? 'text-right' : ''}`}>
           {/* Moment label */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-6"
+            className={`flex items-center gap-3 mb-6 ${point.textRight ? 'justify-end' : ''}`}
           >
             <span className="text-mono text-primary/40 text-[10px]">{point.id}</span>
             <span className="w-8 h-px bg-primary/20" />
@@ -119,7 +121,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="border-l-2 border-primary/30 pl-4"
+            className={`${point.textRight ? 'border-r-2 border-l-0 pr-4' : 'border-l-2 pl-4'} border-primary/30`}
           >
             <span className="text-mono text-primary/40 text-[9px] block mb-1">IMPACT</span>
             <p className="text-foreground/80 font-light text-sm">{point.impact}</p>
