@@ -38,7 +38,7 @@ const POINTS: InflectionPoint[] = [
     title: "Building under pressure.\n",
     description:
       "Limited time. High stakes. Every claim had to hold under questioning. Every assumption had to survive scrutiny. This is where ideas are tested against reality.",
-    image: suitImg,
+    image: investorImg,
     impact: "Converted conversations into serious investor interest.",
   },
 ];
