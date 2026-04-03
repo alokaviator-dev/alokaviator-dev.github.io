@@ -44,7 +44,6 @@ const POINTS: InflectionPoint[] = [
 ];
 
 const InflectionCard = ({ point, index }: { point: InflectionPoint; index: number }) => {
-  const isReversed = index === 2;
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.15, 1, 0.95]);
@@ -70,7 +69,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-background/70" />
-        <div className={`absolute inset-0 ${isReversed ? 'bg-gradient-to-l from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/60 to-transparent'}`} />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
       </motion.div>
 
       {/* Content */}
@@ -78,7 +77,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
         style={{ y: textY }}
         className="relative z-20 container mx-auto px-6 md:px-16 py-20"
       >
-        <div className={`${isReversed ? 'max-w-2xl ml-auto' : 'max-w-2xl'}`}>
+        <div className="max-w-2xl">
           {/* Moment label */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
