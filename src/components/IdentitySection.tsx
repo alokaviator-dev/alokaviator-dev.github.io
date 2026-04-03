@@ -27,7 +27,7 @@ const IdentitySection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent lg:hidden" />
           {/* HUD overlay */}
           <div className="absolute bottom-6 left-6 text-mono text-primary/40">
-            <span>PROFILE.02</span>
+            <span>ALOK SRIVASTAV</span>
           </div>
         </motion.div>
 

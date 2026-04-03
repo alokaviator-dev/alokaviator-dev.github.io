@@ -31,8 +31,8 @@ const STAGES: Stage[] = [
     label: "FOUNDATION",
     title: "Learning to",
     titleAccent: "see systems.",
-    org: "CATIA · Early Engineering",
-    period: "2019–2020",
+    org: "CATIA · EARLY ENGINEERING",
+    period: "2021–2022",
     description:
       "Started with parametric design and mechanical systems. Learned that every constraint is a design opportunity—and that precision thinking scales to any domain.",
     skills: ["CATIA V5", "Parametric Modeling", "GD&T", "Systems Thinking"],
