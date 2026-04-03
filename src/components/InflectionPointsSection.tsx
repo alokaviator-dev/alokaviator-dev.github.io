@@ -44,6 +44,7 @@ const POINTS: InflectionPoint[] = [
 ];
 
 const InflectionCard = ({ point, index }: { point: InflectionPoint; index: number }) => {
+  const isReversed = index === 2;
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.15, 1, 0.95]);
