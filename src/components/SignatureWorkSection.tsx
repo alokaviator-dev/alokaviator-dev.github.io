@@ -63,7 +63,7 @@ const PROJECTS: Project[] = [
   {
     id: "04",
     label: "PLANETARY ROBOTICS",
-    title: "Autonomous",
+    title: "Planetary",
     titleAccent: "Rover ops.",
     problem: "20-min comms delay makes teleoperation impossible.",
     constraint: "Hours of autonomous operation on unknown terrain.",
