@@ -1,4 +1,11 @@
 import { motion } from "framer-motion";
+import { Linkedin, Instagram, Phone } from "lucide-react";
+
+const SOCIAL_LINKS = [
+  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/aloksrivastav" },
+  { icon: Instagram, label: "Instagram", href: "https://instagram.com/aloksrivastav" },
+  { icon: Phone, label: "Contact", href: "tel:+1234567890" },
+];
 
 const FinalCTA = () => {
   return (
@@ -33,6 +40,29 @@ const FinalCTA = () => {
         >
           INITIATE CONTACT
         </motion.a>
+
+        {/* Social links */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mt-10 flex items-center justify-center gap-6"
+        >
+          {SOCIAL_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-4 py-2.5 border border-border/30 text-muted-foreground/60
+                         hover:border-primary/40 hover:text-primary transition-all duration-500"
+            >
+              <link.icon size={14} className="group-hover:text-primary transition-colors duration-500" />
+              <span className="text-mono text-[10px] tracking-[0.12em]">{link.label.toUpperCase()}</span>
+            </a>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
