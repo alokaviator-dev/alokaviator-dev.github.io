@@ -43,6 +43,7 @@ const POINTS: InflectionPoint[] = [
     image: investorImg,
     impact: "Converted conversations into serious investor interest.",
     textRight: true,
+    mobileObjectPosition: "max-sm:object-[70%_top]",
   },
 ];
 
