@@ -12,6 +12,7 @@ interface InflectionPoint {
   image: string;
   impact: string;
   textRight?: boolean;
+  mobileObjectPosition?: string;
 }
 
 const POINTS: InflectionPoint[] = [
