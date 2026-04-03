@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import suitImg from "@/assets/suit-helmet-cinematic.jpg";
+import investorImg from "@/assets/investor-meet-cinematic.jpg";
 import roverImg from "@/assets/lunar-rover-cinematic.jpg";
 import uavImg from "@/assets/trajectory-uav.jpg";
 
