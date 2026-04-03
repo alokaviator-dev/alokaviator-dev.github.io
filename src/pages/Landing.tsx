@@ -49,7 +49,7 @@ const Landing = () => {
             key="boot"
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="fixed inset-0 bg-background flex items-center justify-center z-40"
+            className="fixed inset-0 bg-background flex items-center justify-center z-40 min-h-[100svh]"
           >
             {/* Scanline effect */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
