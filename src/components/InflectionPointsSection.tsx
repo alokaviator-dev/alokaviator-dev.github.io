@@ -86,7 +86,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-6"
+            className={`flex items-center gap-3 mb-6 ${point.textRight ? 'justify-end' : ''}`}
           >
             <span className="text-mono text-primary/40 text-[10px]">{point.id}</span>
             <span className="w-8 h-px bg-primary/20" />
