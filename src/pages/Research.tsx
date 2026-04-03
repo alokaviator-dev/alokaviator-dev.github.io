@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import CursorGlow from "@/components/CursorGlow";
+import TopNav from "@/components/TopNav";
 
 const RESEARCH_NOTES = [
   {
