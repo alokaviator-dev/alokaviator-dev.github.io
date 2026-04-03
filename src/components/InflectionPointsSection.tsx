@@ -70,16 +70,16 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
           height={1080}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        <div className={`absolute inset-0 ${point.textRight ? 'bg-background/40' : 'bg-background/70'}`} />
+        <div className={`absolute inset-0 ${point.textRight ? 'bg-gradient-to-l from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/60 to-transparent'}`} />
       </motion.div>
 
       {/* Content */}
       <motion.div
         style={{ y: textY }}
-        className="relative z-20 container mx-auto px-6 md:px-16 py-20"
+        className={`relative z-20 container mx-auto px-6 md:px-16 py-20 ${point.textRight ? 'flex justify-end' : ''}`}
       >
-        <div className="max-w-2xl">
+        <div className={`max-w-2xl ${point.textRight ? 'text-right' : ''}`}>
           {/* Moment label */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
