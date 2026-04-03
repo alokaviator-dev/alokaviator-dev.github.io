@@ -25,21 +25,21 @@ const POINTS: InflectionPoint[] = [
   },
   {
     id: "IP.02",
-    moment: "48-hour isolation protocol",
+    moment: "ANALOG Astronaut Mission",
     title: "When the team becomes the system.",
     description:
-      "Lunar analog mission. Comms blackout. Equipment malfunction. The moment I realized that human factors aren't edge cases—they're the primary constraint in extreme environments.",
+      "Lunar analog mission. Comms blackout. Equipment malfunction. The moment I realized that human factors aren't edge cases, they're the primary constraint in extreme environments.",
     image: roverImg,
     impact: "Shifted focus to human-machine interface design under stress.",
   },
   {
     id: "IP.03",
-    moment: "Pressure suit integration test",
-    title: "Designing for the body under duress.",
+    moment: "INVESTOR MEET",
+    title: "Building under pressure.\n",
     description:
-      "Extreme thermal swings. Zero dexterity. Every interaction had to work through gloves at -150°C. This is where elegant design meets brutal reality.",
+      "Limited time. High stakes. Every claim had to hold under questioning. Every assumption had to survive scrutiny. This is where ideas are tested against reality.",
     image: suitImg,
-    impact: "35% faster EVA task completion through haptic feedback redesign.",
+    impact: "Converted conversations into serious investor interest.",
   },
 ];
 

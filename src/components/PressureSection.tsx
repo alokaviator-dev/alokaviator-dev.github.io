@@ -103,7 +103,7 @@ const PressureSection = () => {
             className="text-muted-foreground font-light leading-relaxed text-base sm:text-lg"
           >
             Lunar analog missions. Isolation protocols. Decision-making when
-            every variable is hostile. These aren't credentials—they're proof
+            every variable is hostile. These aren't credentials, they're proof
             that pressure doesn't break the system. It reveals it.
           </motion.p>
         </div>

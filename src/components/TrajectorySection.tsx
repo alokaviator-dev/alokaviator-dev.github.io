@@ -28,18 +28,18 @@ interface Stage {
 const STAGES: Stage[] = [
   {
     id: "01",
-    label: "FOUNDATION",
-    title: "Learning to",
+    label: "",
+    title: "Learned to",
     titleAccent: "see systems.",
-    org: "CATIA · EARLY ENGINEERING",
+    org: "DESIGN · EARLY ENGINEERING",
     period: "2021–2022",
     description:
-      "Started with parametric design and mechanical systems. Learned that every constraint is a design opportunity—and that precision thinking scales to any domain.",
+      "Started with parametric design and mechanical systems. Learned that every constraint is a design opportunity, and that precision thinking scales to any domain.",
     skills: ["CATIA V5", "Parametric Modeling", "GD&T", "Systems Thinking"],
     insight: "Engineering isn't about parts. It's about relationships between parts.",
     image: foundationImg,
     awards: [
-      { title: "Design Innovation Award", context: "Parametric systems" },
+      { title: "BEST ALL-ROUNDER AWARD", context: "Parametric systems" },
     ],
   },
   {
@@ -47,7 +47,7 @@ const STAGES: Stage[] = [
     label: "SYSTEMS EXPOSURE",
     title: "From components to",
     titleAccent: "connected systems.",
-    org: "ARTHX · EMBEDDED SYSTEMS · GCS",
+    org: "EMBEDDED SYSTEMS · GCS",
     period: "2022–2023",
     description:
       "Transitioned from mechanical to embedded systems and ground control stations. First exposure to real-time telemetry, sensor fusion, and the pressure of systems that can't fail.",
@@ -55,39 +55,39 @@ const STAGES: Stage[] = [
     insight: "The best system is the one the operator never has to think about.",
     image: systemsImg,
     awards: [
-      { title: "Best GCS Architecture", context: "ArthX review board" },
+      { title: "Best GCS Architecture", context: "REVIEW BOARD" },
     ],
   },
   {
     id: "03",
-    label: "UAV DESIGN",
+    label: "Building UAV",
     title: "Building what",
     titleAccent: "flies autonomous.",
-    org: "FEYNMAN AEROSPACE",
+    org: "Autonomous UAV",
     period: "2023–2024",
     description:
-      "Designed and built UAV platforms from airframe to avionics. Learned that autonomy isn't a feature—it's an architecture decision that changes everything downstream.",
+      "Designed and built UAV platforms from airframe to avionics. Learned that autonomy isn't a feature, it's an architecture decision that changes everything downstream.",
     skills: ["UAV Architecture", "Flight Control", "Autonomous Nav", "CFD"],
     insight: "Autonomy is earned through reliability, not complexity.",
     image: uavImg,
     awards: [
-      { title: "National UAV Competition — Top 5", context: "Autonomous flight" },
+      { title: "NATIONAL UAV EXHIBITION — TOP 5", context: "Autonomous flight" },
     ],
   },
   {
     id: "04",
-    label: "ADVANCED RESEARCH",
+    label: "DEFENCE RESEARCH",
     title: "Pushing into",
     titleAccent: "defense-grade.",
-    org: "Dautya Aerospace",
-    period: "2022–2023",
+    org: "TELEMETRY",
+    period: "2024–2025",
     description:
-      "Advanced into defense-grade research—systems that operate where failure isn't an option. Designed for EW-contested environments, GPS-denied navigation, and autonomous threat response.",
+      "Advanced into defense-grade research, systems that operate where failure isn't an option. Designed for EW-contested environments, GPS-denied navigation, and autonomous threat response.",
     skills: ["Defense Systems", "EW Countermeasures", "ML Inference", "HITL"],
     insight: "Defense engineering is civilian engineering minus the margin for error.",
     image: researchImg,
     awards: [
-      { title: "Defense Research Recognition", context: "EW systems contribution" },
+      { title: "DEFENSE RESEARCH", context: "Telemetry Research & Development" },
     ],
   },
   {
@@ -95,16 +95,16 @@ const STAGES: Stage[] = [
     label: "EXTREME ENVIRONMENT",
     title: "Tested at the",
     titleAccent: "edge of Earth.",
-    org: "Lunar Analog Mission",
-    period: "2023–2024",
+    org: "LUNAR ANALOG MISSION",
+    period: "2026",
     description:
-      "Deployed to extreme analog environments. Every system was tested under isolation, comms delay, thermal extremes, and cognitive pressure. This is where theory becomes proof.",
+      "Deployed to extreme analog environments. The Builder was tested under isolation, comms delay, thermal extremes, and cognitive pressure. This is where theory becomes proof.",
     skills: ["EVA Systems", "Isolation Ops", "Comms-Denied", "Crew Systems"],
     insight: "Pressure doesn't build character. It reveals architecture.",
     image: roverImg,
     awards: [
       { title: "Analog Astronaut Certification", context: "Lunar mission crew" },
-      { title: "Crew Systems Lead Citation", context: "Isolation ops" },
+      { title: "MISSION ENGINEER", context: "Isolation ops" },
     ],
   },
 ];
@@ -359,7 +359,7 @@ const TrajectoryStage = ({
               {/* Stage tag */}
               <div className="absolute top-4 left-4 z-10">
                 <span className="text-mono text-[9px] text-primary/70 bg-background/50 backdrop-blur-md px-2.5 py-1 border border-primary/10">
-                  STAGE {stage.id} — {stage.label}
+                  STAGE {stage.id}{stage.label ? ` — ${stage.label}` : ""}
                 </span>
               </div>
             </div>
