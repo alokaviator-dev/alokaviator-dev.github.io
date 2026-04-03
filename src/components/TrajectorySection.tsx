@@ -359,7 +359,7 @@ const TrajectoryStage = ({
               {/* Stage tag */}
               <div className="absolute top-4 left-4 z-10">
                 <span className="text-mono text-[9px] text-primary/70 bg-background/50 backdrop-blur-md px-2.5 py-1 border border-primary/10">
-                  STAGE {stage.id} — {stage.label}
+                  STAGE {stage.id}{stage.label ? ` — ${stage.label}` : ""}
                 </span>
               </div>
             </div>

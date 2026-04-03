@@ -22,14 +22,14 @@ const FinalCTA = () => {
         </motion.h2>
 
         <motion.a
-          href="mailto:contact@aloksrivastav.com"
+          href="mailto:alok.aviator@gmail.com"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="inline-block px-12 py-4 border border-primary/40 text-primary text-mono tracking-widest
                      hover:bg-primary/10 hover:border-primary/60 transition-all duration-500
-                     glow-accent"
+                     glow-accent shadow-none"
         >
           INITIATE CONTACT
         </motion.a>
