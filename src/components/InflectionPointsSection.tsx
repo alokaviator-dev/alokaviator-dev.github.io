@@ -121,7 +121,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="border-l-2 border-primary/30 pl-4"
+            className={`${point.textRight ? 'border-r-2 border-l-0 pr-4' : 'border-l-2 pl-4'} border-primary/30`}
           >
             <span className="text-mono text-primary/40 text-[9px] block mb-1">IMPACT</span>
             <p className="text-foreground/80 font-light text-sm">{point.impact}</p>
