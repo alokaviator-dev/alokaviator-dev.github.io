@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Linkedin, Instagram, Phone } from "lucide-react";
 
 const SOCIAL_LINKS = [
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/aloksrivastav" },
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com/aloksrivastav" },
-  { icon: Phone, label: "Contact", href: "tel:+1234567890" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/aloktech" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/alokbuilds/" },
+  { icon: Phone, label: "Contact", href: "tel:+918951951212" },
 ];
 
 const FinalCTA = () => {
