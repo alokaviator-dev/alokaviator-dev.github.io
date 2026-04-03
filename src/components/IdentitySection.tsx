@@ -27,7 +27,7 @@ const IdentitySection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent lg:hidden" />
           {/* HUD overlay */}
           <div className="absolute bottom-6 left-6 text-mono text-primary/40">
-            <span>PROFILE.02</span>
+            <span>ALOK SRIVASTAV</span>
           </div>
         </motion.div>
 
@@ -66,9 +66,9 @@ const IdentitySection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-muted-foreground font-light leading-relaxed text-lg"
             >
-              Aerospace engineer turned founder. Building defense systems
-              at the intersection of autonomy, intelligence, and precision.
-              Every system I build exists because the alternative was unacceptable.
+              Analog astronaut, UAV systems engineer, and founder.<br />
+              Building defense systems at the intersection of autonomy, intelligence, and precision.<br />
+              Every system exists because the alternative is unacceptable.
             </motion.p>
 
             <motion.div

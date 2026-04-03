@@ -31,8 +31,8 @@ const STAGES: Stage[] = [
     label: "FOUNDATION",
     title: "Learning to",
     titleAccent: "see systems.",
-    org: "CATIA · Early Engineering",
-    period: "2019–2020",
+    org: "CATIA · EARLY ENGINEERING",
+    period: "2021–2022",
     description:
       "Started with parametric design and mechanical systems. Learned that every constraint is a design opportunity—and that precision thinking scales to any domain.",
     skills: ["CATIA V5", "Parametric Modeling", "GD&T", "Systems Thinking"],
@@ -47,8 +47,8 @@ const STAGES: Stage[] = [
     label: "SYSTEMS EXPOSURE",
     title: "From components to",
     titleAccent: "connected systems.",
-    org: "ArthX · Embedded Systems · GCS",
-    period: "2020–2021",
+    org: "ARTHX · EMBEDDED SYSTEMS · GCS",
+    period: "2022–2023",
     description:
       "Transitioned from mechanical to embedded systems and ground control stations. First exposure to real-time telemetry, sensor fusion, and the pressure of systems that can't fail.",
     skills: ["Embedded C/C++", "Ground Control", "Telemetry", "Sensor Fusion"],
@@ -63,8 +63,8 @@ const STAGES: Stage[] = [
     label: "UAV DESIGN",
     title: "Building what",
     titleAccent: "flies autonomous.",
-    org: "Feynman Aerospace",
-    period: "2021–2022",
+    org: "FEYNMAN AEROSPACE",
+    period: "2023–2024",
     description:
       "Designed and built UAV platforms from airframe to avionics. Learned that autonomy isn't a feature—it's an architecture decision that changes everything downstream.",
     skills: ["UAV Architecture", "Flight Control", "Autonomous Nav", "CFD"],
