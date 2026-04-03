@@ -70,7 +70,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-l from-background via-background/60 to-transparent" />
+        <div className={`absolute inset-0 ${isReversed ? 'bg-gradient-to-l from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/60 to-transparent'}`} />
       </motion.div>
 
       {/* Content */}
