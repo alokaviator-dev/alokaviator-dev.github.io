@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import CursorGlow from "@/components/CursorGlow";
+import TopNav from "@/components/TopNav";
 
 const RESEARCH_NOTES = [
   {
@@ -115,6 +116,7 @@ const Research = () => {
       transition={{ duration: 1 }}
       className="bg-background min-h-screen"
     >
+      <TopNav />
       <CursorGlow />
 
       {/* Noise */}
