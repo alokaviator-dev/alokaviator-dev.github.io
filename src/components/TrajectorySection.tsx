@@ -54,6 +54,9 @@ const STAGES: Stage[] = [
     skills: ["Embedded C/C++", "Ground Control", "Telemetry", "Sensor Fusion"],
     insight: "The best system is the one the operator never has to think about.",
     image: systemsImg,
+    awards: [
+      { title: "Best GCS Architecture", context: "ArthX review board" },
+    ],
   },
   {
     id: "03",
