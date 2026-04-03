@@ -86,6 +86,9 @@ const STAGES: Stage[] = [
     skills: ["Defense Systems", "EW Countermeasures", "ML Inference", "HITL"],
     insight: "Defense engineering is civilian engineering minus the margin for error.",
     image: researchImg,
+    awards: [
+      { title: "Defense Research Recognition", context: "EW systems contribution" },
+    ],
   },
   {
     id: "05",
