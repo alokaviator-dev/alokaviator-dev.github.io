@@ -63,10 +63,13 @@
     @apply bg-background text-foreground;
     font-family: var(--font-display);
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 }
 

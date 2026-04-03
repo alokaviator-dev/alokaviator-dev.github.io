@@ -40,7 +40,7 @@ const Landing = () => {
   };
 
   return (
-    <div className="bg-background min-h-screen overflow-hidden relative">
+    <div className="bg-background min-h-[100svh] overflow-hidden relative">
       <div className="noise-overlay absolute inset-0 pointer-events-none z-50" />
 
       <AnimatePresence mode="wait">
@@ -49,7 +49,7 @@ const Landing = () => {
             key="boot"
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="fixed inset-0 bg-background flex items-center justify-center z-40"
+            className="fixed inset-0 bg-background flex items-center justify-center z-40 min-h-[100svh]"
           >
             {/* Scanline effect */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -152,7 +152,7 @@ const Landing = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="fixed inset-0 z-40"
+            className="fixed inset-0 z-40 min-h-[100svh]"
           >
             {/* Particle field */}
             <div className="absolute inset-0 z-10 pointer-events-none">
