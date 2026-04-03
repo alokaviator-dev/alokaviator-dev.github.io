@@ -38,6 +38,9 @@ const STAGES: Stage[] = [
     skills: ["CATIA V5", "Parametric Modeling", "GD&T", "Systems Thinking"],
     insight: "Engineering isn't about parts. It's about relationships between parts.",
     image: foundationImg,
+    awards: [
+      { title: "Design Innovation Award", context: "Parametric systems" },
+    ],
   },
   {
     id: "02",
