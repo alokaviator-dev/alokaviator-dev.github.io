@@ -78,7 +78,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
         style={{ y: textY }}
         className="relative z-20 container mx-auto px-6 md:px-16 py-20"
       >
-        <div className="max-w-2xl">
+        <div className={`${isReversed ? 'max-w-2xl ml-auto' : 'max-w-2xl'}`}>
           {/* Moment label */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
