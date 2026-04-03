@@ -221,12 +221,12 @@ const Landing = () => {
 
             {/* Main text */}
             <div className="absolute inset-0 flex items-center z-20">
-              <div className="px-8 md:px-16 lg:px-24 max-w-3xl">
+              <div className="px-6 sm:px-8 md:px-16 lg:px-24 max-w-3xl">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-mono text-primary/70 mb-6"
+                  className="text-mono text-primary/70 mb-3 md:mb-4"
                 >
                   FOUNDER · ENGINEER · SYSTEMS ARCHITECT
                 </motion.p>
@@ -235,7 +235,7 @@ const Landing = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="text-display text-hero text-foreground mb-6"
+                  className="text-display text-foreground mb-3 md:mb-4 text-[clamp(2.2rem,6vw,7rem)] leading-[1.05]"
                 >
                   I design systems others don't understand{" "}
                   <span className="text-primary">yet.</span>
@@ -255,7 +255,7 @@ const Landing = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 1.4 }}
                   onClick={handleEnter}
-                  className="mt-12 px-8 py-3 border border-primary/40 text-primary text-mono tracking-widest
+                  className="mt-6 md:mt-10 px-8 py-3 border border-primary/40 text-primary text-mono tracking-widest
                              hover:bg-primary/10 hover:border-primary/60 transition-all duration-500
                              glow-accent cursor-pointer"
                 >
