@@ -9,6 +9,7 @@ import FutureDirectionSection from "@/components/FutureDirectionSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import FinalCTA from "@/components/FinalCTA";
 import CursorGlow from "@/components/CursorGlow";
+import TopNav from "@/components/TopNav";
 
 const Experience = () => {
   return (
