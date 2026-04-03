@@ -23,6 +23,7 @@ const POINTS: InflectionPoint[] = [
       "A UAV lost signal in a GPS-denied corridor. Recovery took 11 seconds of pure autonomous decision-making. That failure rewired how I architect every failsafe since.",
     image: uavImg,
     impact: "Led to sensor-fusion-first architecture across all platforms.",
+    textRight: true,
   },
   {
     id: "IP.02",
