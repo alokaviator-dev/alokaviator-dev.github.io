@@ -220,7 +220,7 @@ const Landing = () => {
             </div>
 
             {/* Main text */}
-            <div className="absolute inset-0 flex items-center z-20">
+            <div className="absolute inset-0 flex items-center z-20 rounded-none shadow-xl">
               <div className="px-6 sm:px-8 md:px-16 lg:px-24 max-w-3xl">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -228,7 +228,7 @@ const Landing = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="text-mono text-primary/70 mb-3 md:mb-4"
                 >
-                  FOUNDER · ENGINEER · SYSTEMS ARCHITECT
+                  ANALOG ASTRONAUT · ENGINEER · SYSTEMS ARCHITECT
                 </motion.p>
 
                 <motion.h1
@@ -257,7 +257,7 @@ const Landing = () => {
                   onClick={handleEnter}
                   className="mt-6 md:mt-10 px-8 py-3 border border-primary/40 text-primary text-mono tracking-widest
                              hover:bg-primary/10 hover:border-primary/60 transition-all duration-500
-                             glow-accent cursor-pointer"
+                             glow-accent cursor-pointer rounded-lg shadow-none"
                 >
                   ENTER
                 </motion.button>
