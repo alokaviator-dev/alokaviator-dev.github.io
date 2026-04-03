@@ -12,7 +12,6 @@ interface InflectionPoint {
   image: string;
   impact: string;
   textRight?: boolean;
-  mobileObjectPosition?: string;
 }
 
 const POINTS: InflectionPoint[] = [
@@ -43,7 +42,6 @@ const POINTS: InflectionPoint[] = [
     image: investorImg,
     impact: "Converted conversations into serious investor interest.",
     textRight: true,
-    mobileObjectPosition: "max-sm:object-[70%_top]",
   },
 ];
 
@@ -70,7 +68,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
           loading="lazy"
           width={1920}
           height={1080}
-          className={`w-full h-full object-cover ${point.mobileObjectPosition ? point.mobileObjectPosition : ''}`}
+          className="w-full h-full object-cover"
         />
         <div className={`absolute inset-0 ${point.textRight ? 'bg-background/40' : 'bg-background/70'}`} />
         <div className={`absolute inset-0 ${point.textRight ? 'bg-gradient-to-l from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/60 to-transparent'}`} />
