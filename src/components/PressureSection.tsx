@@ -13,7 +13,7 @@ const PressureSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-[120vh] w-full bg-background overflow-hidden">
-      <div className="noise-overlay absolute inset-0 pointer-events-none z-10" />
+      {/* Removed noise-overlay for performance */}
 
       {/* Full-width parallax image */}
       <motion.div

@@ -294,26 +294,7 @@ const TrajectoryStage = ({
                 }}
                 transition={{ duration: 0.6 }}
               />
-              {/* Pulse rings */}
-              {isActive && (
-                <>
-                  <motion.div
-                    className="absolute inset-0 rounded-full border border-primary/30"
-                    animate={{ scale: [1, 3], opacity: [0.6, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 rounded-full border border-primary/20"
-                    animate={{ scale: [1, 4], opacity: [0.4, 0] }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      ease: "easeOut",
-                      delay: 0.5,
-                    }}
-                  />
-                </>
-              )}
+              {/* Removed infinite pulse rings for performance */}
             </motion.div>
 
             {/* Stage number label */}

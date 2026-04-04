@@ -28,7 +28,7 @@ const FutureDirectionSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-[120vh] w-full overflow-hidden flex items-center">
-      <div className="noise-overlay absolute inset-0 pointer-events-none z-10" />
+      {/* Removed noise-overlay for performance */}
 
       {/* Background image */}
       <motion.div style={{ scale: imgScale }} className="absolute inset-0 z-0">

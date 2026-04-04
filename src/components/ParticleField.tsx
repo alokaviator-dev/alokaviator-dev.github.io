@@ -17,9 +17,10 @@ const ParticleField = () => {
       canvas.height = window.innerHeight;
     };
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", resize, { passive: true });
 
-    for (let i = 0; i < 60; i++) {
+    // Reduced from 60 to 25 particles
+    for (let i = 0; i < 25; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -47,20 +48,7 @@ const ParticleField = () => {
         ctx.fill();
       });
 
-      // Draw connections
-      particles.forEach((a, i) => {
-        particles.slice(i + 1).forEach((b) => {
-          const dist = Math.hypot(a.x - b.x, a.y - b.y);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(53, 147, 129, ${0.08 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
+      // Removed connection lines entirely — O(n²) was expensive
 
       animId = requestAnimationFrame(draw);
     };

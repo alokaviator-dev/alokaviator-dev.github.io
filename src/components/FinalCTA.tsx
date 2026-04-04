@@ -14,7 +14,7 @@ const FinalCTA = () => {
 
       {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[400px] h-[400px] rounded-full bg-primary/8 blur-[100px] animate-pulse-glow" />
+        <div className="w-[400px] h-[400px] rounded-full bg-primary/8 blur-[100px]" />
       </div>
 
       <div className="relative z-20 text-center px-8">

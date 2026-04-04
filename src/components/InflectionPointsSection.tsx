@@ -136,7 +136,7 @@ const InflectionCard = ({ point, index }: { point: InflectionPoint; index: numbe
 const InflectionPointsSection = () => {
   return (
     <section className="relative bg-background overflow-hidden">
-      <div className="noise-overlay absolute inset-0 pointer-events-none z-0" />
+      {/* Removed noise-overlay for performance */}
 
       {/* Section header */}
       <div className="relative z-10 pt-20 sm:pt-32 pb-8 sm:pb-16">

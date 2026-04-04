@@ -10,7 +10,7 @@ const IdentitySection = () => {
 
   return (
     <section ref={ref} className="relative min-h-screen w-full bg-background overflow-hidden">
-      <div className="noise-overlay absolute inset-0 pointer-events-none z-10" />
+      {/* Removed noise-overlay for performance */}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Image side */}
