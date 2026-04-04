@@ -30,7 +30,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-005",
     title: "Signal Integrity Under Noise",
-    body: "In degraded communication environments, the system that survives isn't the one with the strongest signal — it's the one that knows how to act on incomplete information without catastrophic misinterpretation.",
+    body: "In degraded communication environments, the system that survives isn't the one with the strongest signal, it's the one that knows how to act on incomplete information without catastrophic misinterpretation.",
     tags: ["COMMS", "RESILIENCE"],
   },
   {
