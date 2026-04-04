@@ -6,7 +6,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-001",
     title: "Failure Propagation in Autonomous Chains",
-    body: "When a single subsystem fails in a tightly coupled autonomy stack, the cascade isn't linear — it's exponential. Designing for graceful degradation means building decision boundaries that isolate failure domains before they compound.",
+    body: "When a single subsystem fails in a tightly coupled autonomy stack, the cascade isn't linear, it's exponential. Designing for graceful degradation means building decision boundaries that isolate failure domains before they compound.",
     tags: ["AUTONOMY", "FAULT TOLERANCE"],
   },
   {
@@ -18,7 +18,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-003",
     title: "Closed-Loop Decision Latency",
-    body: "The gap between sensing and acting defines system competence. Reducing decision latency isn't about faster processors — it's about eliminating unnecessary deliberation in the control loop.",
+    body: "The gap between sensing and acting defines system competence. Reducing decision latency isn't about faster processors,  it's about eliminating unnecessary deliberation in the control loop.",
     tags: ["CONTROL", "REAL-TIME"],
   },
   {
@@ -30,7 +30,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-005",
     title: "Signal Integrity Under Noise",
-    body: "In degraded communication environments, the system that survives isn't the one with the strongest signal — it's the one that knows how to act on incomplete information without catastrophic misinterpretation.",
+    body: "In degraded communication environments, the system that survives isn't the one with the strongest signal, it's the one that knows how to act on incomplete information without catastrophic misinterpretation.",
     tags: ["COMMS", "RESILIENCE"],
   },
   {
@@ -42,7 +42,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-007",
     title: "The Cost of Abstraction in Embedded Systems",
-    body: "Abstraction trades runtime cost for developer velocity. In embedded contexts, that trade-off has hard physical limits — thermal, power, timing. Know where your abstractions break.",
+    body: "Abstraction trades runtime cost for developer velocity. In embedded contexts, that trade-off has hard physical limits; thermal, power, timing. Know where your abstractions break.",
     tags: ["EMBEDDED", "TRADE-OFFS"],
   },
   {
