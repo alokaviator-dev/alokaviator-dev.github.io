@@ -18,7 +18,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-003",
     title: "Closed-Loop Decision Latency",
-    body: "The gap between sensing and acting defines system competence. Reducing decision latency isn't about faster processors — it's about eliminating unnecessary deliberation in the control loop.",
+    body: "The gap between sensing and acting defines system competence. Reducing decision latency isn't about faster processors,  it's about eliminating unnecessary deliberation in the control loop.",
     tags: ["CONTROL", "REAL-TIME"],
   },
   {
