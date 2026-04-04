@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const CursorGlow = () => {
-  const [pos, setPos] = useState({ x: -500, y: -500 });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handler = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", handler);
+    const el = ref.current;
+    if (!el) return;
+    const handler = (e: MouseEvent) => {
+      el.style.left = `${e.clientX}px`;
+      el.style.top = `${e.clientY}px`;
+    };
+    window.addEventListener("mousemove", handler, { passive: true });
     return () => window.removeEventListener("mousemove", handler);
   }, []);
 
-  return <div className="cursor-glow" style={{ left: pos.x, top: pos.y }} />;
+  return <div ref={ref} className="cursor-glow" />;
 };
 
 export default CursorGlow;
