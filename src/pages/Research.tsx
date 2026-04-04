@@ -42,7 +42,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-007",
     title: "The Cost of Abstraction in Embedded Systems",
-    body: "Abstraction trades runtime cost for developer velocity. In embedded contexts, that trade-off has hard physical limits — thermal, power, timing. Know where your abstractions break.",
+    body: "Abstraction trades runtime cost for developer velocity. In embedded contexts, that trade-off has hard physical limits; thermal, power, timing. Know where your abstractions break.",
     tags: ["EMBEDDED", "TRADE-OFFS"],
   },
   {
