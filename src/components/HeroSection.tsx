@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-portrait.jpg";
+import heroImg from "@/assets/hero-portrait.webp";
 import ParticleField from "./ParticleField";
 
 interface HeroSectionProps {
