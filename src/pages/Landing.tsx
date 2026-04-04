@@ -184,8 +184,10 @@ const Landing = () => {
                 src={heroImg}
                 alt="Alok Srivastav"
                 className="h-full w-full object-cover object-center"
-                width={1024}
-                height={1280}
+                width={1280}
+                height={1600}
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute inset-0 gradient-fade-right" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
