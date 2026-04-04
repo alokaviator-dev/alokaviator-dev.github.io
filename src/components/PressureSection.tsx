@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import suitImg from "@/assets/suit-helmet-cinematic.jpg";
-import roverImg from "@/assets/lunar-rover-cinematic.jpg";
+import suitImg from "@/assets/suit-helmet-cinematic.webp";
+import roverImg from "@/assets/lunar-rover-cinematic.webp";
 
 const PressureSection = () => {
   const ref = useRef<HTMLDivElement>(null);

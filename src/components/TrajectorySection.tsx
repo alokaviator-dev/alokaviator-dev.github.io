@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
-import foundationImg from "@/assets/trajectory-foundation.jpg";
-import systemsImg from "@/assets/trajectory-systems.jpg";
-import uavImg from "@/assets/trajectory-uav.jpg";
-import researchImg from "@/assets/trajectory-research.jpg";
-import roverImg from "@/assets/lunar-rover-cinematic.jpg";
+import foundationImg from "@/assets/trajectory-foundation.webp";
+import systemsImg from "@/assets/trajectory-systems.webp";
+import uavImg from "@/assets/trajectory-uav.webp";
+import researchImg from "@/assets/trajectory-research.webp";
+import roverImg from "@/assets/lunar-rover-cinematic.webp";
 
 interface Award {
   title: string;

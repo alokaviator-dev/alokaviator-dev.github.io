@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import droneImg from "@/assets/drone-project.jpg";
-import commandImg from "@/assets/command-center.jpg";
-import neuralImg from "@/assets/neural-interface.jpg";
-import suitImg from "@/assets/suit-helmet-cinematic.jpg";
-import roverImg from "@/assets/rover-workshop-cinematic.jpg";
+import droneImg from "@/assets/drone-project.webp";
+import commandImg from "@/assets/command-center.webp";
+import neuralImg from "@/assets/neural-interface.webp";
+import suitImg from "@/assets/suit-helmet-cinematic.webp";
+import roverImg from "@/assets/rover-workshop-cinematic.webp";
 
 interface Project {
   id: string;

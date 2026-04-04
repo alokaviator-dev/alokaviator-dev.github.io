@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import futureImg from "@/assets/future-direction.jpg";
+import futureImg from "@/assets/future-direction.webp";
 
 const VECTORS = [
   {

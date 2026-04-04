@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ParticleField from "@/components/ParticleField";
-import heroImg from "@/assets/hero-portrait.jpg";
+import heroImg from "@/assets/hero-portrait.webp";
 
 const bootLines = [
   { text: "INITIALIZING CORE SYSTEMS...", delay: 0 },

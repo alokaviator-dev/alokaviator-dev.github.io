@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import identityImg from "@/assets/identity-portrait.jpg";
+import identityImg from "@/assets/identity-portrait.webp";
 
 const IdentitySection = () => {
   const ref = useRef<HTMLDivElement>(null);
