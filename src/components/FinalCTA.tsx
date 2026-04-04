@@ -10,7 +10,7 @@ const SOCIAL_LINKS = [
 const FinalCTA = () => {
   return (
     <section className="relative min-h-screen w-full bg-background flex items-center justify-center overflow-hidden">
-      <div className="noise-overlay absolute inset-0 pointer-events-none z-10" />
+      {/* Removed noise-overlay for performance */}
 
       {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
