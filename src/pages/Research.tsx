@@ -6,7 +6,7 @@ const RESEARCH_NOTES = [
   {
     id: "RN-001",
     title: "Failure Propagation in Autonomous Chains",
-    body: "When a single subsystem fails in a tightly coupled autonomy stack, the cascade isn't linear — it's exponential. Designing for graceful degradation means building decision boundaries that isolate failure domains before they compound.",
+    body: "When a single subsystem fails in a tightly coupled autonomy stack, the cascade isn't linear, it's exponential. Designing for graceful degradation means building decision boundaries that isolate failure domains before they compound.",
     tags: ["AUTONOMY", "FAULT TOLERANCE"],
   },
   {
