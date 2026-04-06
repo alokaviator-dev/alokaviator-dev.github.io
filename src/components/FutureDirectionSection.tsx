@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import futureImg from "@/assets/future-direction.webp";
+import TextReveal from "./TextReveal";
+import TextScramble from "./TextScramble";
 
 const VECTORS = [
   {
@@ -28,8 +30,6 @@ const FutureDirectionSection = () => {
 
   return (
     <section ref={ref} className="relative min-h-[120vh] w-full overflow-hidden flex items-center">
-      {/* Removed noise-overlay for performance */}
-
       {/* Background image */}
       <motion.div style={{ scale: imgScale }} className="absolute inset-0 z-0">
         <img
@@ -49,49 +49,59 @@ const FutureDirectionSection = () => {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-4">
-            <span className="w-12 h-px bg-primary/30" />
             <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              className="text-mono text-primary/50"
-            >
-              WHERE THIS IS GOING
-            </motion.span>
+              transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
+              className="w-12 h-px bg-primary/30 origin-left block"
+            />
+            <TextScramble text="WHERE THIS IS GOING" className="text-mono text-primary/50" delay={0.2} />
           </div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="font-display font-light tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl max-w-3xl"
-          >
-            The trajectory <span className="text-primary">doesn't stop.</span>
-          </motion.h2>
+          <div className="font-display font-light tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl max-w-3xl">
+            <TextReveal delay={0.3}>
+              The trajectory
+            </TextReveal>
+            {" "}
+            <TextReveal delay={0.6} className="text-primary">
+              doesn't stop.
+            </TextReveal>
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
             className="text-muted-foreground font-light text-lg mt-6 max-w-2xl leading-relaxed"
           >
             Every stage built capability for what comes next. The systems are getting more complex, the stakes higher, and the margin for error thinner. That's the point.
           </motion.p>
         </div>
 
-        {/* Vectors */}
+        {/* Vectors with staggered card reveal */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {VECTORS.map((vector, i) => (
             <motion.div
               key={vector.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 60, rotateX: -10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.3 + i * 0.15,
+                ease: [0.215, 0.61, 0.355, 1],
+              }}
               className="group"
             >
-              <div className="border border-primary/10 p-6 sm:p-8 bg-background/30 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 h-full">
-                <span className="text-mono text-primary/30 text-[10px] block mb-4">{vector.id}</span>
+              <div className="border border-primary/10 p-6 sm:p-8 bg-background/30 backdrop-blur-sm hover:border-primary/30 
+                              hover:bg-primary/5 transition-all duration-700 h-full relative overflow-hidden">
+                {/* Hover glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                  style={{
+                    background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.08) 0%, transparent 60%)",
+                  }}
+                />
+                <TextScramble text={vector.id} className="text-mono text-primary/30 text-[10px] block mb-4" delay={0.5 + i * 0.2} />
                 <h3 className="text-mono text-primary text-sm mb-4 tracking-wider">{vector.label}</h3>
                 <p className="text-muted-foreground font-light text-sm leading-relaxed">
                   {vector.description}
@@ -102,7 +112,7 @@ const FutureDirectionSection = () => {
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5 + i * 0.2 }}
+                  transition={{ duration: 1.2, delay: 0.8 + i * 0.2, ease: [0.77, 0, 0.175, 1] }}
                   style={{ transformOrigin: "left" }}
                 />
               </div>
@@ -115,12 +125,15 @@ const FutureDirectionSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
           className="mt-16 text-center"
         >
-          <span className="text-mono text-muted-foreground/30 text-[10px] tracking-[0.3em]">
-            SYSTEMS EVOLVING · TRAJECTORY ASCENDING · MISSION CONTINUES
-          </span>
+          <TextScramble
+            text="SYSTEMS EVOLVING · TRAJECTORY ASCENDING · MISSION CONTINUES"
+            className="text-mono text-muted-foreground/30 text-[10px] tracking-[0.3em]"
+            delay={1.5}
+            speed={15}
+          />
         </motion.div>
       </motion.div>
     </section>
