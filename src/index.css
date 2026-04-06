@@ -117,16 +117,34 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
 
-  .cursor-glow {
+  .cursor-dot {
     pointer-events: none;
     position: fixed;
-    width: 400px;
-    height: 400px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: radial-gradient(circle, hsl(var(--accent-green) / 0.06) 0%, transparent 70%);
+    background: hsl(var(--accent-green));
     transform: translate(-50%, -50%);
-    z-index: 50;
-    transition: opacity 0.3s;
+    z-index: 52;
+    box-shadow: 0 0 6px 2px hsl(var(--accent-green) / 0.6),
+                0 0 12px 4px hsl(var(--accent-green) / 0.3);
+  }
+
+  .cursor-glow-ring {
+    pointer-events: none;
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid hsl(var(--accent-green) / 0.5);
+    transform: translate(-50%, -50%);
+    z-index: 51;
+    box-shadow: 0 0 15px 3px hsl(var(--accent-green) / 0.15),
+                inset 0 0 8px 1px hsl(var(--accent-green) / 0.08);
+  }
+
+  @media (pointer: coarse) {
+    .cursor-dot, .cursor-glow-ring { display: none; }
   }
 }
 
