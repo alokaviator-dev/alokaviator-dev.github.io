@@ -1,5 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import TextReveal from "./TextReveal";
+import TextScramble from "./TextScramble";
 import investorImg from "@/assets/investor-meet-cinematic.webp";
 import roverImg from "@/assets/lunar-rover-cinematic.webp";
 import uavImg from "@/assets/trajectory-uav.webp";
@@ -143,23 +145,16 @@ const InflectionPointsSection = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="flex items-center gap-4 mb-4">
             <span className="w-12 h-px bg-primary/30" />
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-mono text-primary/50"
-            >
-              INFLECTION POINTS
-            </motion.span>
+            <TextScramble text="INFLECTION POINTS" className="text-mono text-primary/50" delay={0.2} />
           </div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="font-display font-light tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl"
-          >
-            Moments that <span className="text-primary">changed everything.</span>
+          <div className="font-display font-light tracking-tight text-foreground text-4xl sm:text-5xl lg:text-6xl">
+            <TextReveal delay={0.3}>
+              Moments that
+            </TextReveal>
+            {" "}
+            <TextReveal delay={0.6} className="text-primary">
+              changed everything.
+            </TextReveal>
           </motion.h2>
         </div>
       </div>
