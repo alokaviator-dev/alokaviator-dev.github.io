@@ -66,7 +66,7 @@ const IdentitySection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-muted-foreground font-light leading-relaxed text-lg"
             >
-              Analog astronaut, Aeronautical Engineer, UAV systems research, and founder.<br />
+              Analog astronaut, Aeronautical Engineer, Systems Engineer, and founder.<br />
               Building defense systems at the intersection of autonomy, intelligence, and precision.<br />
               Every system exists because the alternative is unacceptable.
             </motion.p>
