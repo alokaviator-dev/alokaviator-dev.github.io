@@ -6,13 +6,13 @@ import heroImg from "@/assets/hero-portrait.webp";
 
 const bootLines = [
   { text: "INITIALIZING CORE SYSTEMS...", delay: 0 },
-  { text: "NEURAL LINK ................. ACTIVE", delay: 0.4 },
-  { text: "SENSOR ARRAY ................ ONLINE", delay: 0.8 },
-  { text: "TELEMETRY FEED .............. SYNCED", delay: 1.2 },
-  { text: "ENCRYPTION LAYER ............ AES-256", delay: 1.6 },
-  { text: "BIOMETRIC AUTH .............. VERIFIED", delay: 2.0 },
-  { text: "CLEARANCE LEVEL ............. ALPHA", delay: 2.4 },
-  { text: "SYSTEM STATUS ............... NOMINAL", delay: 2.8 },
+  { text: "NEURAL LINK ................. ACTIVE", delay: 0.2 },
+  { text: "SENSOR ARRAY ................ ONLINE", delay: 0.4 },
+  { text: "TELEMETRY FEED .............. SYNCED", delay: 0.6 },
+  { text: "ENCRYPTION LAYER ............ AES-256", delay: 0.8 },
+  { text: "BIOMETRIC AUTH .............. VERIFIED", delay: 1.0 },
+  { text: "CLEARANCE LEVEL ............. ALPHA", delay: 1.2 },
+  { text: "SYSTEM STATUS ............... NOMINAL", delay: 1.4 },
 ];
 
 const Landing = () => {
@@ -23,11 +23,11 @@ const Landing = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setBootComplete(true);
-    }, 3600);
+    }, 1800);
 
     const heroTimer = setTimeout(() => {
       setPhase("hero");
-    }, 4200);
+    }, 2200);
 
     return () => {
       clearTimeout(timer);
