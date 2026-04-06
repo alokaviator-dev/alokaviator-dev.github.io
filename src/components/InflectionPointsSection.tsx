@@ -155,7 +155,7 @@ const InflectionPointsSection = () => {
             <TextReveal delay={0.6} className="text-primary">
               changed everything.
             </TextReveal>
-          </motion.h2>
+          </div>
         </div>
       </div>
 
