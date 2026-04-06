@@ -388,7 +388,7 @@ const TrajectorySection = () => {
       <div className="noise-overlay absolute inset-0 pointer-events-none z-[1]" />
 
       {/* Section header — sticky briefly */}
-      <div className="sticky top-0 z-30 pointer-events-none">
+      <div className="md:sticky md:top-0 z-30 pointer-events-none">
         <div className="container mx-auto px-6 md:px-16 pt-20 pb-10">
           <div className="flex items-center gap-4 mb-4">
             <span className="w-12 h-px bg-primary/30" />
