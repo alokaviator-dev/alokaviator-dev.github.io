@@ -2,6 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import suitImg from "@/assets/suit-helmet-cinematic.webp";
 import roverImg from "@/assets/lunar-rover-cinematic.webp";
+import TextReveal from "./TextReveal";
+import TextScramble from "./TextScramble";
+import CountUp from "./CountUp";
 
 const PressureSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -10,11 +13,10 @@ const PressureSection = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const textY = useTransform(scrollYProgress, [0, 1], [60, -30]);
   const img2Y = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const img2Rotate = useTransform(scrollYProgress, [0, 1], [3, -2]);
 
   return (
     <section ref={ref} className="relative min-h-[120vh] w-full bg-background overflow-hidden">
-      {/* Removed noise-overlay for performance */}
-
       {/* Full-width parallax image */}
       <motion.div
         style={{ scale: imgScale, y: imgY }}
@@ -32,12 +34,16 @@ const PressureSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80" />
       </motion.div>
 
-      {/* Floating second image */}
+      {/* Floating second image with rotation */}
       <motion.div
-        style={{ y: img2Y }}
+        style={{ y: img2Y, rotate: img2Rotate }}
         className="absolute bottom-24 right-8 md:right-16 lg:right-24 z-[15] hidden md:block"
       >
-        <div className="relative w-48 lg:w-64 h-64 lg:h-80">
+        <motion.div
+          className="relative w-48 lg:w-64 h-64 lg:h-80"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary/30" />
           <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary/30" />
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary/30" />
@@ -51,7 +57,7 @@ const PressureSection = () => {
             className="w-full h-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* HUD overlay elements */}
@@ -62,11 +68,40 @@ const PressureSection = () => {
           viewport={{ once: true }}
           className="text-mono text-primary/50 text-right"
         >
-          <span>MISSION LOG</span>
-          <br />
-          <span>ANALOG.04</span>
+          <TextScramble text="MISSION LOG" className="text-mono text-primary/50 block" delay={0.3} />
+          <TextScramble text="ANALOG.04" className="text-mono text-primary/50 block" delay={0.5} />
         </motion.div>
       </div>
+
+      {/* Pressure stats overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="absolute bottom-12 left-8 sm:left-12 z-20 hidden lg:flex gap-8"
+      >
+        <div className="text-center">
+          <div className="text-2xl font-display font-light text-primary">
+            <CountUp end={14} suffix="d" delay={1} />
+          </div>
+          <span className="text-mono text-[8px] text-muted-foreground/40">ISOLATION</span>
+        </div>
+        <div className="w-px h-12 bg-primary/10" />
+        <div className="text-center">
+          <div className="text-2xl font-display font-light text-primary">
+            <CountUp end={20} suffix="min" delay={1.2} />
+          </div>
+          <span className="text-mono text-[8px] text-muted-foreground/40">COMMS DELAY</span>
+        </div>
+        <div className="w-px h-12 bg-primary/10" />
+        <div className="text-center">
+          <div className="text-2xl font-display font-light text-primary">
+            <CountUp end={100} suffix="%" delay={1.4} />
+          </div>
+          <span className="text-mono text-[8px] text-muted-foreground/40">UPTIME</span>
+        </div>
+      </motion.div>
 
       {/* Content */}
       <motion.div
@@ -74,32 +109,27 @@ const PressureSection = () => {
         className="relative z-20 flex items-center min-h-[120vh] px-6 sm:px-8 md:px-16 lg:px-24"
       >
         <div className="max-w-2xl">
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+          <TextScramble
+            text="PRESSURE TESTED"
             className="text-mono text-primary/60 mb-6 sm:mb-8 block"
-          >
-            PRESSURE TESTED
-          </motion.span>
+            delay={0.3}
+          />
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="text-display text-section text-foreground mb-6 sm:mb-8"
-          >
-            Forged under
+          <div className="text-display text-section text-foreground mb-6 sm:mb-8">
+            <TextReveal delay={0.4}>
+              Forged under
+            </TextReveal>
             <br />
-            <span className="text-primary">extreme conditions.</span>
-          </motion.h2>
+            <TextReveal delay={0.7} className="text-primary">
+              extreme conditions.
+            </TextReveal>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 1 }}
             className="text-muted-foreground font-light leading-relaxed text-base sm:text-lg"
           >
             Lunar analog missions. Isolation protocols. Decision-making when
