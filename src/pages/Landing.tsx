@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ParticleField from "@/components/ParticleField";
-import MagneticButton from "@/components/MagneticButton";
-import TextScramble from "@/components/TextScramble";
-import TextReveal from "@/components/TextReveal";
 import heroImg from "@/assets/hero-portrait.webp";
 
 const bootLines = [
@@ -24,12 +21,23 @@ const Landing = () => {
   const [bootComplete, setBootComplete] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setBootComplete(true), 3600);
-    const heroTimer = setTimeout(() => setPhase("hero"), 4200);
-    return () => { clearTimeout(timer); clearTimeout(heroTimer); };
+    const timer = setTimeout(() => {
+      setBootComplete(true);
+    }, 3600);
+
+    const heroTimer = setTimeout(() => {
+      setPhase("hero");
+    }, 4200);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(heroTimer);
+    };
   }, []);
 
-  const handleEnter = () => navigate("/experience");
+  const handleEnter = () => {
+    navigate("/experience");
+  };
 
   return (
     <div className="bg-background min-h-[100svh] overflow-hidden relative">
@@ -39,8 +47,8 @@ const Landing = () => {
         {phase === "boot" && (
           <motion.div
             key="boot"
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
             className="fixed inset-0 bg-background flex items-center justify-center z-40 min-h-[100svh]"
           >
             {/* Scanline effect */}
@@ -51,34 +59,25 @@ const Landing = () => {
                   backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(var(--accent-green) / 0.1) 2px, hsl(var(--accent-green) / 0.1) 4px)",
                 }}
               />
-              {/* Scanning beam */}
-              <motion.div
-                className="absolute left-0 right-0 h-px bg-primary/20"
-                animate={{ top: ["0%", "100%", "0%"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              />
             </div>
 
             {/* Corner brackets */}
-            {[
-              "top-6 left-6 border-l-2 border-t-2",
-              "top-6 right-6 border-r-2 border-t-2",
-              "bottom-6 left-6 border-l-2 border-b-2",
-              "bottom-6 right-6 border-r-2 border-b-2",
-            ].map((pos, i) => (
-              <motion.div
-                key={i}
-                className={`absolute ${pos.split(" ").slice(0, 2).join(" ")}`}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <div className={`w-12 h-12 ${pos.split(" ").slice(2).join(" ")} border-primary/30`} />
-              </motion.div>
-            ))}
+            <div className="absolute top-6 left-6">
+              <div className="w-12 h-12 border-l-2 border-t-2 border-primary/30" />
+            </div>
+            <div className="absolute top-6 right-6">
+              <div className="w-12 h-12 border-r-2 border-t-2 border-primary/30" />
+            </div>
+            <div className="absolute bottom-6 left-6">
+              <div className="w-12 h-12 border-l-2 border-b-2 border-primary/30" />
+            </div>
+            <div className="absolute bottom-6 right-6">
+              <div className="w-12 h-12 border-r-2 border-b-2 border-primary/30" />
+            </div>
 
             {/* Boot sequence */}
             <div className="w-full max-w-xl px-8">
+              {/* System header */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
@@ -90,17 +89,18 @@ const Landing = () => {
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
+                transition={{ duration: 0.5 }}
                 className="h-px bg-primary/20 mb-8 origin-left"
               />
 
+              {/* Boot lines */}
               <div className="space-y-2 font-mono">
                 {bootLines.map((line, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: line.delay, ease: [0.215, 0.61, 0.355, 1] }}
+                    transition={{ duration: 0.3, delay: line.delay }}
                     className="text-xs md:text-sm text-primary/70 flex items-center gap-2"
                   >
                     <motion.span
@@ -113,9 +113,9 @@ const Landing = () => {
                     </motion.span>
                     {line.text}
                     <motion.span
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: line.delay + 0.25, type: "spring", stiffness: 300 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: line.delay + 0.25 }}
                       className="text-primary ml-auto"
                     >
                       ✓
@@ -124,6 +124,7 @@ const Landing = () => {
                 ))}
               </div>
 
+              {/* Progress bar */}
               <div className="mt-10 relative">
                 <div className="h-px bg-primary/10 w-full" />
                 <motion.div
@@ -131,14 +132,6 @@ const Landing = () => {
                   animate={{ scaleX: bootComplete ? 1 : 0.85 }}
                   transition={{ duration: 3.2, ease: "easeInOut" }}
                   className="absolute top-0 left-0 h-px bg-primary/60 w-full origin-left"
-                />
-                {/* Glowing tip on progress bar */}
-                <motion.div
-                  className="absolute top-0 h-px w-8 bg-primary"
-                  style={{ filter: "blur(4px)" }}
-                  initial={{ left: "0%" }}
-                  animate={{ left: bootComplete ? "100%" : "85%" }}
-                  transition={{ duration: 3.2, ease: "easeInOut" }}
                 />
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -158,9 +151,10 @@ const Landing = () => {
             key="hero"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.215, 0.61, 0.355, 1] }}
+            transition={{ duration: 1 }}
             className="fixed inset-0 z-40 min-h-[100svh]"
           >
+            {/* Particle field */}
             <div className="absolute inset-0 z-10 pointer-events-none">
               <ParticleField />
             </div>
@@ -181,9 +175,9 @@ const Landing = () => {
 
             {/* Hero image - right side */}
             <motion.div
-              initial={{ opacity: 0, scale: 1.1, x: 40 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2, delay: 0.8, ease: "easeOut" }}
               className="absolute right-0 top-0 h-full w-[55%] z-[1]"
             >
               <img
@@ -210,7 +204,7 @@ const Landing = () => {
                 className="text-mono text-primary/60"
               >
                 <div className="w-8 h-8 border-l border-t border-primary/30" />
-                <TextScramble text="SYS.ONLINE" className="text-mono text-primary/60 mt-2 block" delay={1.8} />
+                <span className="mt-2 block">SYS.ONLINE</span>
               </motion.div>
             </div>
 
@@ -221,62 +215,54 @@ const Landing = () => {
                 transition={{ delay: 1.7, duration: 1 }}
                 className="text-mono text-primary/60 text-right"
               >
-                <TextScramble text="LAT 28.5383° N" className="text-mono text-primary/60 block" delay={2} />
-                <TextScramble text="LON 80.6036° W" className="text-mono text-primary/60 block" delay={2.2} />
+                <span className="block">LAT 28.5383° N</span>
+                <span className="block">LON 80.6036° W</span>
                 <div className="w-8 h-8 border-r border-b border-primary/30 ml-auto mt-2" />
               </motion.div>
             </div>
 
             {/* Main text */}
-            <div className="absolute inset-0 flex items-center z-20">
+            <div className="absolute inset-0 flex items-center z-20 rounded-none shadow-xl">
               <div className="px-6 sm:px-8 md:px-16 lg:px-24 max-w-3xl">
-                <TextScramble
-                  text="ANALOG ASTRONAUT · ENGINEER · SYSTEMS ARCHITECT"
-                  className="text-mono text-primary/70 mb-3 md:mb-4 block"
-                  delay={0.3}
-                  speed={20}
-                />
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-mono text-primary/70 mb-3 md:mb-4"
+                >
+                  ANALOG ASTRONAUT · ENGINEER · SYSTEMS ARCHITECT
+                </motion.p>
 
-                <div className="text-display text-foreground mb-3 md:mb-4 text-[clamp(2.2rem,6vw,7rem)] leading-[1.05]">
-                  <TextReveal delay={0.6} staggerChildren={0.05}>
-                    I design systems others don't understand
-                  </TextReveal>
-                  {" "}
-                  <TextReveal delay={1.2} className="text-primary" staggerChildren={0.08}>
-                    yet.
-                  </TextReveal>
-                </div>
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                  className="text-display text-foreground mb-3 md:mb-4 text-[clamp(2.2rem,6vw,7rem)] leading-[1.05]"
+                >
+                  I design systems others don't understand{" "}
+                  <span className="text-primary">yet.</span>
+                </motion.h1>
 
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.4 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
                   className="text-subtitle text-muted-foreground font-light tracking-wide"
                 >
                   Alok Srivastav
                 </motion.p>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.8 }}
-                  className="mt-6 md:mt-10"
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 1.4 }}
+                  onClick={handleEnter}
+                  className="mt-6 md:mt-10 px-8 py-3 border border-primary/40 text-primary text-mono tracking-widest
+                             hover:bg-primary/10 hover:border-primary/60 transition-all duration-500
+                             glow-accent cursor-pointer rounded-lg shadow-none"
                 >
-                  <MagneticButton
-                    onClick={handleEnter}
-                    strength={0.4}
-                    className="px-8 py-3 border border-primary/40 text-primary text-mono tracking-widest
-                               hover:bg-primary/10 hover:border-primary/60 transition-all duration-500
-                               glow-accent cursor-pointer rounded-lg shadow-none relative overflow-hidden group"
-                  >
-                    <span className="relative z-10">ENTER</span>
-                    <motion.span
-                      className="absolute bottom-0 left-0 right-0 h-px bg-primary"
-                      animate={{ scaleX: [0, 1, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                  </MagneticButton>
-                </motion.div>
+                  ENTER
+                </motion.button>
               </div>
             </div>
           </motion.div>
