@@ -230,7 +230,7 @@ const Landing = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="text-mono text-primary/70 mb-3 md:mb-4"
                 >
-                  ANALOG ASTRONAUT · AERONAUTICAL ENGINEER · UAV SYSTEMS RESEARCH
+                  ANALOG ASTRONAUT · AERONAUTICAL ENGINEER · SYSTEMS ENGINEER
                 </motion.p>
 
                 <motion.h1
