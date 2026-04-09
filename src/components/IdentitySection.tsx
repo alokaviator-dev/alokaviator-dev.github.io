@@ -56,7 +56,7 @@ const IdentitySection = () => {
             >
               Not a title.
               <br />
-              <span className="text-primary">A trajectory</span>
+              <span className="text-primary">A trajectory.</span>
             </motion.h2>
 
             <motion.p
